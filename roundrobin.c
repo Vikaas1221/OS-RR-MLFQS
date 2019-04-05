@@ -23,7 +23,7 @@ void round_robin(int n)
   }
   printf("Enter Time Quantum:\t"); 
   scanf("%d",&time_quantum); 
-  printf("\n\nProcess\t|Turnaround Time|Waiting Time\n\n"); 
+  printf("\n\nProcess ArrivalTime BurstTime Turnaround_t Waiting_t \n\n"); 
   for(time=0,i=0;remain_process!=0;) 
   { 
     if(rem_t[i]<=time_quantum && rem_t[i]>0) 
@@ -40,7 +40,7 @@ void round_robin(int n)
     if(rem_t[i]==0&& m==1) 
     { 
       remain_process--; 
-      printf("P[%d]\t|\t%d\t|\t%d\n",i+1,time-arrive_t[i],time-arrive_t[i]-burst_t[i]); 
+      printf("P[%d]         %d         %d         %d         %d\n",i+1,arrive_t[i],burst_t[i],time-arrive_t[i],time-arrive_t[i]-burst_t[i]); 
       wait_time=wait_time+time-arrive_t[i]-burst_t[i]; 
       turnaround_time=turnaround_time+time-arrive_t[i]; 
       m=0;
@@ -52,6 +52,8 @@ void round_robin(int n)
     else 
       i=0; 
   } 
+  printf("\nAverage Waiting Time= %f\n",wait_time*1.0/n); 
+  printf("Avg Turnaround Time = %f",turnaround_time*1.0/n);
 }
 int main() 
 { 
