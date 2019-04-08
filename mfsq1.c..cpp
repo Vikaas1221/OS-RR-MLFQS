@@ -22,6 +22,29 @@ void RR1()
 			time = time + timeQuantum1;
 		}
 	}
+	RR2();
+
+
+}
+void RR2(){
+	timeQuantum2 = 16; 
+
+	for (count = 0; count < totalProcess; count++)
+	{
+		if (rem[count] <= timeQuantum2 && rem[count] > 0)
+		{
+			time = time + rem[count];
+			rem[count]= 0;
+			printf("----------\n");
+			printf("P[%d] completed in 2nd RoundRobin algorithm. \nTurn around time is %d \nWaiting time is %d.\n", count, time, time - burst[count]);
+		}
+		else if (rem[count] > 0)
+		{
+			rem[count] = rem[count] - timeQuantum2;
+			time = time + timeQuantum2;
+		}
+	}
+
 
 
 }
