@@ -44,10 +44,26 @@ void RR2(){
 			time = time + timeQuantum2;
 		}
 	}
+	FCFS();
 
 
 
 }
+void FCFS()
+{
+
+	for (count = 0; count < totalProcess; count++)
+	{
+		if (rem[count] > 0)
+		{
+			time = time +rem[count];
+			rem[count] = 0;
+			printf("----------\n");
+			printf("P[%d] completed in FCFS algorithm. \nTurn around time is %d \n Waiting time is %d.\n", count, time, time - burst[count]);
+		}
+	}
+}
+
 int main()
 {
 	
